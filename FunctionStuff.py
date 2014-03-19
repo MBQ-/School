@@ -12,3 +12,11 @@ def remove_adjacent_duplicates2(old_list):
         index += 1
             
     return new_list
+
+def remove_adjacent_duplicates1(old_list):
+    new_list = []:
+    last_item_of_new_list = new_list[-1]
+    if item != last_item_of_new_list:
+        new_list.append(item)
+        
+    return new_list
