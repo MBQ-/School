@@ -18,37 +18,57 @@ Exposure = ()
 def AddName():
     
     # Ask user for Stock Symbol
-    
     stock_symbol = input(" Enter Stock Symbol: ")
 
     # Ask user for the Company Name
-    
     company_name = input("Enter the Company Name: ")
 
     # Add this key/value pair to Names dictionary
-    
-    Names
+    Names(stock_symbol) = company_name
+
+    return stock_symbol
 
 # AddPrices - takes a Stock Symbol as an input parameter,
 # then asks the user for the Buy price and the Current price
 # of the corresponding stock, adding them to the Prices dictionary
 
 def AddPrices(stock_symbol):
-    pass
+    
+    # Asks the user for the Buy Price    
+    buy_price = float(input("Enter the Buy price: "))
+
+    # Asks the user for the Current Price    
+    current_price = float(input("Enter the Current Price: "))
+
+    # Adding them to the Prices dictionary  
+    Prices(stock_symbol) = (buy_price, current_price)
 
 # AddExposure - Takes a Stock Symbol as an input parameter,
 # then asks the user for the Risk and Shares of the
 # corresponding stock, adding them to the Exposure dictionary.
 
 def AddExposure(stock_symbol):
-    pass
+
+    # Asks the user for the Risk
+    risk - float(input("Enter the Risk: ")
+
+    # Asks the user for the Shares
+    number_of_shares = float(input("Enter the number of Shares: ")
+
+    #Adding them to the Exposure dictionary
+    Exposure(stock_symbol) = (risk,  number_of_shares)
 
 # AddStock - Calls AddName, AddPrices, and AddExposure
 # to add a new stock to the portfolio.
 
 def AddStock(stock_symbol):
-    pass
+    AddName()
+    AddPrices()
+    
+    
 
 # GetSale - Finds the maximum expected value of selling a stock.
 # The expected sale value of a stock is the current profit minus
 # the future value of the stock:
+
+
