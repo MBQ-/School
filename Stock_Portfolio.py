@@ -62,13 +62,14 @@ def AddExposure(stock_symbol):
 # to add a new stock to the portfolio.
 
 def AddStock(stock_symbol):
-    AddName()
-    AddPrices()
+    stock_symbol =  AddName()
+    AddPrices(stock_symbol)
     
     
-
 # GetSale - Finds the maximum expected value of selling a stock.
 # The expected sale value of a stock is the current profit minus
 # the future value of the stock:
 
 
+
+# Expected Sale value = ( ( Current Price - Buy Price ) - Risk * CurrentPrice ) * Shares
