@@ -1,75 +1,57 @@
-# The first dictionary, called Names, maps the
-# stock symbol to the company name (example: "GM" maps to "General Motors").
+names = {}
+prices = {}
+exposure = {}
 
-# The second dictionary, called Prices, maps the stock symbol to a
-# list of 2 floating point numbers corresponding to the buy price
-# (the price the user paid for the stock) and the current market price (the price the user could sell the stock for today).
 
-# The third dictionary,
-# called Exposure, maps the stock symbol to a list of 2 floating point numbers,
-# corresponding to the number of shares purchased, and the risk associated with
-# holding onto the stock (i.e. How likely the stock is to gain value in the future).
-
-Exposure = ()
-
-# AddName - Asks the user for a Stock Symbol and Name pairing
-# then adds it to the Names dictionary
 
 def AddName():
-    
-    # Ask user for Stock Symbol
-    stock_symbol = input(" Enter Stock Symbol: ")
-
-    # Ask user for the Company Name
-    company_name = input("Enter the Company Name: ")
-
-    # Add this key/value pair to Names dictionary
-    Names(stock_symbol) = company_name
-
+    stock_symbol = input('Enter Company Symbol: ')
+    company_name = input('Enter Company Name: ')
+    names[stock_symbol] =  company_name
     return stock_symbol
 
-# AddPrices - takes a Stock Symbol as an input parameter,
-# then asks the user for the Buy price and the Current price
-# of the corresponding stock, adding them to the Prices dictionary
 
+
+ 
 def AddPrices(stock_symbol):
+    buy_price = float(input('Enter the Buy price: '))
+    current_price = float(input('Enter the Current Price: '))
     
-    # Asks the user for the Buy Price    
-    buy_price = float(input("Enter the Buy price: "))
 
-    # Asks the user for the Current Price    
-    current_price = float(input("Enter the Current Price: "))
+    prices[stock_symbol] = (buy_price, current_price)
 
-    # Adding them to the Prices dictionary  
-    Prices(stock_symbol) = (buy_price, current_price)
-
-# AddExposure - Takes a Stock Symbol as an input parameter,
-# then asks the user for the Risk and Shares of the
-# corresponding stock, adding them to the Exposure dictionary.
 
 def AddExposure(stock_symbol):
+    risk = float(input('Enter the Risk: '))
+    shares = float(input('Enter the number of Shares: '))
 
-    # Asks the user for the Risk
-    risk - float(input("Enter the Risk: ")
+    exposure[stock_symbol] = (risk, shares)
 
-    # Asks the user for the Shares
-    number_of_shares = float(input("Enter the number of Shares: ")
-
-    #Adding them to the Exposure dictionary
-    Exposure(stock_symbol) = (risk,  number_of_shares)
-
-# AddStock - Calls AddName, AddPrices, and AddExposure
-# to add a new stock to the portfolio.
-
-def AddStock(stock_symbol):
-    stock_symbol =  AddName()
+def AddStock():
+    stock_symbol = AddName()
     AddPrices(stock_symbol)
+    AddExposure(stock_symbol)
+
+def GetSale(stock_symbol):
     
-    
-# GetSale - Finds the maximum expected value of selling a stock.
-# The expected sale value of a stock is the current profit minus
-# the future value of the stock:
+    ESV = ((prices[stock_symbol][0]-prices[stock_symbol][1]) - exposure[stock_symbol][0]*prices[stock_symbol][0])*exposure[stock_symbol][1]
+
+    return stock_symbol, ESV
 
 
+def Main():
+    print('1. Add Stock')
+    print('2. Recommend Sale')
+    print('3. Exit')
+    menuChoice = 0
 
-# Expected Sale value = ( ( Current Price - Buy Price ) - Risk * CurrentPrice ) * Shares
+    while menuChoice != 3:
+        menuChoice = int(input('What Would You Like To Do? '))
+        if menuChoice == 1:
+            menuChoice = 0
+            AddStock()
+        elif menuChoice == 2:
+            menuChoice = 0
+            GetSale()
+        elif menuChoice != 3:
+            Main()
