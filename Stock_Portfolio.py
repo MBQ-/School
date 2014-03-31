@@ -5,8 +5,8 @@ exposure = {}
 
 
 def AddName():
-    stock_symbol = input('Enter Company Symbol: ')
-    company_name = input('Enter Company Name: ')
+    stock_symbol = input("Enter Company Symbol: ")
+    company_name = input("Enter Company Name: ")
     names[stock_symbol] =  company_name
     return stock_symbol
 
@@ -14,16 +14,16 @@ def AddName():
 
  
 def AddPrices(stock_symbol):
-    buy_price = float(input('Enter the Buy price: '))
-    current_price = float(input('Enter the Current Price: '))
+    buy_price = float(input("Enter the Buy price: "))
+    current_price = float(input("Enter the Current Price: "))
     
 
     prices[stock_symbol] = (buy_price, current_price)
 
 
 def AddExposure(stock_symbol):
-    risk = float(input('Enter the Risk: '))
-    shares = float(input('Enter the number of Shares: '))
+    risk = float(input("Enter the Risk: "))
+    shares = float(input("Enter the number of Shares: "))
 
     exposure[stock_symbol] = (risk, shares)
 
@@ -40,13 +40,13 @@ def GetSale(stock_symbol):
 
 
 def Main():
-    print('1. Add Stock')
-    print('2. Recommend Sale')
-    print('3. Exit')
+    print("1. Add Stock")
+    print("2. Recommend Sale")
+    print("3. Exit")
     menuChoice = 0
 
     while menuChoice != 3:
-        menuChoice = int(input('What Would You Like To Do? '))
+        menuChoice = int(input("What Would You Like To Do? "))
         if menuChoice == 1:
             menuChoice = 0
             AddStock()
