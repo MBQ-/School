@@ -34,4 +34,9 @@ def get_list_of_cars(how_many):
     return cars
 
 def assign_drivers(cars):
+    index = 0
+
+    car[index].driver_name = driver_names[index]
+    index += 1
+
     
